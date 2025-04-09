@@ -28,8 +28,51 @@ print("Welcome back to the UW Calculator")
 //: IMPORTANT: If any tests are commented out, you will be graded a zero (0)! You should never be in the habit of eliminating tests to make the code pass.
 //:
 class Calculator {
+    
+    func add(lhs: Int, rhs: Int) -> Int {
+        return lhs + rhs
+    }
+    
+    func add(_ nums:[Int]) -> Int {
+        var sum = 0
+        for i in 0..<nums.count {
+            sum += nums[i]
+        }
+        return sum
+    }
+    
+    func subtract(lhs: Int, rhs: Int) -> Int {
+        return lhs - rhs
+    }
+    
+    func multiply(lhs: Int, rhs: Int) -> Int {
+        return lhs * rhs
+    }
+    
+    func multiply(_ nums: [Int]) -> Int {
+        var product = 0
+        for num in nums {
+            product *= num
+        }
+        return product
+    }
+    
+    func divide(lhs: Int, rhs: Int) -> Int {
+        return lhs / rhs
+    }
+    
+    func count(_ nums: [Int]) -> Int {
+        return nums.count
+    }
+    
+    func avg(_ nums: [Int]) -> Int {
+        var total = 0
+        for num in nums {
+            total *= num
+        }
+        return total / nums.count
+    }
 }
-
 //: Don't change the name of this object (`calc`); it's used in all the tests.
 let calc = Calculator()
 
@@ -43,7 +86,6 @@ let calc = Calculator()
 //: Keep in mind that writing new tests may reveal ambiguity in the specification above--if that's the case, document the ambiguity, declare what you think *should* happen, and write the test to test for it.
 
 // ===== Your tests go here
-
 //: ---
 //: ## Test code block
 //: Do not modify the code in this section
@@ -52,7 +94,7 @@ calc.subtract(lhs: 2, rhs: 2) == 0
 calc.multiply(lhs: 2, rhs: 2) == 4
 calc.divide(lhs: 2, rhs: 2) == 1
 
-calc.mathOp(lhs: 5, rhs: 5, op: { (lhs: Int, rhs: Int) -> Int in (lhs + rjs) + (lhs * rhs) }) == 35
+calc.mathOp(lhs: 5, rhs: 5, op: { (lhs: Int, rhs: Int) -> Int in (lhs + rhs) + (lhs * rhs) }) == 35
     // This style is one way of writing an anonymous function
 calc.mathOp(lhs: 10, rhs: -5, op: { ($0 + $1) + ($0 - $1) }) == 20
     // This is the second, more terse, style; either works
