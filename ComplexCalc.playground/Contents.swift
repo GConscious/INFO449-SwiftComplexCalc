@@ -45,8 +45,22 @@ class Calculator {
         return (lhs.0 + rhs.0, lhs.1 + rhs.1)
     }
     
+    func add(lhs: [String: Int], rhs: [String: Int]) -> [String: Int] {
+        var map : [String: Int] = [:]
+        map["x"] = Int(lhs["x"] ?? 0) + Int(rhs["x"] ?? 0)
+        map["y"] = Int(lhs["y"] ?? 0) + Int(rhs["y"] ?? 0)
+        return map
+    }
+    
     func subtract(lhs: Int, rhs: Int) -> Int {
         return lhs - rhs
+    }
+    
+    func subtract(lhs: [String: Int], rhs: [String: Int]) -> [String: Int] {
+        var map: [String: Int] = [:]
+        map["x"] = Int(lhs["x"] ?? 0) - Int(rhs["x"] ?? 0)
+        map["y"] = Int(lhs["y"] ?? 0) - Int(rhs["y"] ?? 0)
+        return map
     }
     
     func subtract(lhs: (Int, Int), rhs: (Int, Int)) -> (Int, Int) {
@@ -93,7 +107,6 @@ class Calculator {
         return result
     }
 }
-
 //: Don't change the name of this object (`calc`); it's used in all the tests.
 let calc = Calculator()
 
